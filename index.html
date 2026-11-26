@@ -9,7 +9,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <<div class="logo">PRANAV.</div>
+        <<div class="logo">PRANAV</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -21,7 +21,9 @@
     <!-- Hero Section (Home) -->
     <header id="home" class="hero">
        <h1>Hi, I'm Pranav Pathak</h1>
-       <p>Web Developer | Blockchain Enthusiast | Web3 Explorer</p>
+       <p class="typing-line">
+    I'm a <span id="typing"></span><span class="cursor">|</span>
+</p>
        <a href="#about" class="btn">Explore My Journey</a>
     </header>
 
@@ -111,5 +113,45 @@ digital experiences.
     <footer>
         <p>&copy; 2026 Pranav Pathak. Built for ApnoAI Internship Task 1.</p>
     </footer>
+    <script>
+const words = [
+    "Blockchain Developer",
+    "Web3 Enthusiast",
+    "Frontend Developer",
+    "Smart Contract Explorer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+    const typing = document.getElementById("typing");
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+        typing.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1500);
+            return;
+        }
+    } else {
+        typing.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 50 : 100);
+}
+
+typeEffect();
+</script>
 </body>
 </html>

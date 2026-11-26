@@ -25,9 +25,16 @@ body {
 }
 
 .logo {
+    .logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.logo span {
     color: #ea580c;
+}
 }
 
 .nav-links {
@@ -263,4 +270,27 @@ html {
 }
 .social-links {
     margin-bottom: 2rem;
+}
+.typing-line {
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+#typing {
+    color: #ffb347;
+    font-weight: bold;
+}
+
+.cursor {
+    color: #ffb347;
+    font-weight: bold;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
